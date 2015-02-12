@@ -16,7 +16,8 @@ Logging with transnaction.
     logger.setLevel(logging.INFO)
 
     import transaction
-    with transaction.manager:
-        logger.info("Hello world")
-        logger.info("Hallo welt")
-    # After transaction "Hello world\nHallo welt\n" will be outputted
+    transaction.begin()
+    logger.info("Hello world")
+    logger.info("Hallo welt")
+    transaction.commit()
+    # After committing the transaction, "Hello world\nHallo welt\n" will be outputted
