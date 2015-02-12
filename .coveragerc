@@ -1,0 +1,3 @@
+[report]
+include = logging_tm/**
+omit = tests/
